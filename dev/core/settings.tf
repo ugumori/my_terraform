@@ -5,3 +5,7 @@ terraform {
     key = "tfstate/dev/core.tfstate"
   }
 }
+
+locals {
+  env = "dev"
+}
