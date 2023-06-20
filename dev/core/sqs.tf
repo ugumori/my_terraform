@@ -1,9 +1,8 @@
 resource "aws_sqs_queue" "raspi_gpio_control" {
   name = "raspi_gpio_control"
   delay_seconds = 0
-  # エラー時300秒で再処理する（Lambdaのタイムアウト時間以上にする）.
+  # エラー時100秒で再処理する（Lambdaのタイムアウト時間以上にする）.
   visibility_timeout_seconds = 100
-  # 空受信を減らすためロングポーリングにする.
   receive_wait_time_seconds = 20
   # 3回程度リトライする. 300(message_retention_seconds) / 100(visibility_timeout_seconds) ≒ 3
   message_retention_seconds = 300
