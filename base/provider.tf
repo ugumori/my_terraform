@@ -9,10 +9,15 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = var.region
+}
+
 variable "region" {
   default = "ap-northeast-1"
 }
 
-provider "aws" {
-    region = var.region
+variable "aws_account_id" {
+  type = string
 }
+
